@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import Header from "./components/header/Header";
 function App() {
   const [data,setData] = useState("");
 
@@ -12,7 +13,7 @@ function App() {
   },[])
   return (
     <div className="App">
-          {data}
+          <Header title = "task"/>
     </div>
   );
 }

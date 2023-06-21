@@ -1,8 +1,17 @@
-import React from 'react'
-import "header.css"
-const Header = () => {
+import React, { useState } from 'react'
+import "./header.css"
+const Header = (props) => {
+  const [data,setData] = useState(()=>{
+    return 0;
+  })
+  function increment() {
+     setData(prevData => prevData+1);
+  }
   return (
-    <div>Header</div>
+    <div >
+      <button onClick={increment}>+</button>
+      <span>{data}</span>
+    </div>
   )
 }
 
