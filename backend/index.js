@@ -7,6 +7,7 @@ dotenv.config();
 var cors = require('cors');
 app.use(cors());
 const testAPI = require("./routes/testAPI")
+const createPost = require("./routes/createPost")
 const PORT = process.env.PORT || 6001 ;
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser : true,
@@ -22,3 +23,4 @@ app.get("/",(req,res)=>{
 })
 
 app.use("/testAPI",testAPI)
+app.use("/post",createPost)
