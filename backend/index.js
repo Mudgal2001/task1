@@ -8,15 +8,15 @@ var cors = require('cors');
 app.use(cors());
 const testAPI = require("./routes/testAPI")
 const createPost = require("./routes/createPost")
+const createUser = require("./routes/users")
 const PORT = process.env.PORT || 6001 ;
-mongoose.connect(process.env.MONGO_URL,{
-    useNewUrlParser : true,
-    useUnifiedTopology : true,
-}).then(()=>{
+mongoose.connect(process.env.MONGO_URL).then(console.log("Connected To MongoDB"));
+mongoose.set('strictQuery', true);
+
     app.listen(PORT,()=>{
         console.log(`Server PORT:${PORT}`);
     })
-}).catch((err)=>console.log(`${err} did not connect`));
+
 
 app.get("/",(req,res)=>{
     res.send("Hello");
@@ -24,3 +24,4 @@ app.get("/",(req,res)=>{
 
 app.use("/testAPI",testAPI)
 app.use("/post",createPost)
+app.use("/createUser",createUser)
