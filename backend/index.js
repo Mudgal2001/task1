@@ -8,7 +8,7 @@ var cors = require('cors');
 app.use(cors());
 const testAPI = require("./routes/testAPI")
 const createPost = require("./routes/createPost")
-const createUser = require("./routes/users")
+const user = require("./routes/users")
 const PORT = process.env.PORT || 6001 ;
 mongoose.connect(process.env.MONGO_URL).then(console.log("Connected To MongoDB"));
 mongoose.set('strictQuery', true);
@@ -24,4 +24,4 @@ app.get("/",(req,res)=>{
 
 app.use("/testAPI",testAPI)
 app.use("/post",createPost)
-app.use("/createUser",createUser)
+app.use("/user",user)
