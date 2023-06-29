@@ -49,6 +49,6 @@ router.post("/register", async (req,res)=>{
     }
     //Decoding the token
     const decodedToken = jwt.verify(token,process.env.SECRET_KEY );
-    res.status(200).json({success:true});   
+    res.status(200).json({success:true,data:{email:decodedToken.email}});   
 })
 module.exports  = router;
